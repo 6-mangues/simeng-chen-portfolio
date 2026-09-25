@@ -25,6 +25,42 @@ const jobs = {
   }
 };
 
+const caseStudies = {
+  fr: {
+    'product-0':['Migration d’un système de paiement critique sans modifier le modèle commercial ni les délais de payout.','Cartographie des flux, formalisation des règles, cadrage KYC/IBAN, coordination Stripe–IT et pilotage de la recette.','Déploiement sécurisé de Stripe Connect et feuille de route d’améliorations sur les frais, virements, factures et échecs.'],
+    'product-1':['Des définitions de données et de KPI différentes selon les équipes Marketing, Finance et Product.','Construction des Data/KPI Dictionaries et validation des règles de calcul avec chaque partie prenante.','Un langage commun, des reportings plus fiables et des besoins data directement exploitables par l’IT.'],
+    'data-0':['Six sources cœur fragmentées ralentissaient la production et la maintenance des reportings.','Nettoyage, jointure et modélisation SQL dans une table analytique partagée.','Une source devenue la base directe d’environ 70 % des reportings de trois équipes.'],
+    'data-1':['Le ciblage B2B devait refléter des cycles, paniers et marchés très différents.','Création d’un scoring Fréquence × Revenu enrichi par le cycle de vie, l’activité et la sensibilité promotionnelle.','Des segments actionnables Bottom, Medium et Premium adaptés à la France, l’UE et l’export.'],
+    'data-2':['Les campagnes manquaient d’une lecture régulière et segmentée de leur performance.','Mise en place d’analyses récurrentes et activation des segments dans les scénarios de fidélisation et de réactivation.','Environ +3 points de taux de réactivité obtenus en quelques mois.'],
+    'crm-0':['Les parcours clients et l’inscription reposaient encore sur de nombreux traitements manuels.','Conception de workflows automatisés couvrant onboarding, post-achat, fidélisation, NPS, win-back et risques.','Réduction forte de la charge manuelle et suppression du besoin d’un poste dédié à l’inscription.'],
+    'crm-1':['Les clients B2B achètent leur stock saisonnier bien avant la date de l’événement.','Analyse des historiques puis lancement de la campagne Fête des Mères dès mars.','GMV hebdomadaire préservé et GMV cumulé mars–mai en hausse de 20 % sur un an.'],
+    'crm-2':['Le bloc de recommandations produits générait un engagement limité.','Conception d’un A/B test remplaçant la sélection de produits par une sélection de marques.','Hausse moyenne du taux de clic comprise entre 4 et 7 points.'],
+    'ecommerce-2':['Les opérations quotidiennes généraient des données encore peu exploitées.','Analyse Excel des inscriptions, validations, dossiers incomplets et répartitions géographiques.','Premiers insights opérationnels et fondation de mon évolution vers le CRM et la data.']
+  },
+  en: {
+    'product-0':['A critical payment migration had to preserve the commercial model and payout timing.','Mapped flows and rules, framed KYC/IBAN needs, coordinated Stripe and IT, and led UAT.','A controlled Stripe Connect rollout and a clear improvement roadmap for fees, transfers, invoices and failures.'],
+    'product-1':['Marketing, Finance and Product used inconsistent field and KPI definitions.','Built Data/KPI Dictionaries and validated calculation rules with each stakeholder.','A shared language, more reliable reporting and implementation-ready data requirements.'],
+    'data-0':['Six fragmented core sources slowed reporting production and maintenance.','Cleaned, joined and modelled them in SQL into one shared analytical table.','One source directly powered approximately 70% of reporting across three teams.'],
+    'data-1':['B2B targeting needed to reflect very different cycles, baskets and markets.','Built a Frequency × Revenue score enriched with lifecycle, activity and promotion sensitivity.','Actionable Bottom, Medium and Premium segments adapted to France, the EU and export markets.'],
+    'data-2':['Campaigns lacked regular, segmented performance analysis.','Introduced recurring reviews and activated segments in retention and reactivation journeys.','Customer response rate increased by approximately three points within months.'],
+    'crm-0':['Customer journeys and registration still relied on extensive manual processing.','Designed automated onboarding, post-purchase, loyalty, NPS, win-back and at-risk workflows.','Greatly reduced manual work and removed the need for a dedicated registration role.'],
+    'crm-1':['B2B customers purchase seasonal stock well before the event date.','Analysed history and moved the Mother’s Day campaign launch to March.','Weekly GMV stayed stable while cumulative March–May GMV grew 20% year on year.'],
+    'crm-2':['Product recommendations generated limited engagement.','Designed an A/B test replacing product selections with brand selections.','Average click-through rate increased by four to seven points.'],
+    'ecommerce-2':['Daily operations generated data that was not yet being fully used.','Analysed registrations, approval rates, incomplete files and geography in Excel.','Produced early operational insight and established the foundation for a move into CRM and data.']
+  },
+  zh: {
+    'product-0':['关键支付迁移必须保持原有商业模式与商家payout周期。','梳理流程和规则，定义KYC/IBAN需求，协调Stripe与IT并主导UAT。','安全上线Stripe Connect，并形成手续费、转账、发票与失败处理的迭代路线。'],
+    'product-1':['Marketing、Finance与Product对字段及KPI定义不一致。','建立Data/KPI Dictionary，并与各方验证计算规则。','形成统一语言、可靠报表与IT可直接实施的数据需求。'],
+    'data-0':['六个分散核心数据源拖慢报表建设与维护。','通过SQL完成清洗、关联与建模，建立共享分析表。','单一数据源直接支持三个团队约70%的报表。'],
+    'data-1':['B2B客户的周期、客单价与市场差异显著。','建立Frequency × Revenue评分，并结合生命周期、活跃度与促销敏感度。','形成适用于法国、欧盟与出口市场的Bottom、Medium、Premium可执行分群。'],
+    'data-2':['营销活动缺少持续且分群化的效果分析。','建立周期性复盘，并将分群用于忠诚度与召回流程。','数月内客户响应率提升约3个百分点。'],
+    'crm-0':['客户旅程与账户注册依赖大量人工处理。','设计Onboarding、售后、忠诚度、NPS、win-back与风险客户自动化流程。','显著降低人工工作量，并取消注册流程专职岗位需求。'],
+    'crm-1':['B2B客户会在节日前较早采购季节性库存。','分析历史数据，并将母亲节活动提前至3月。','周GMV保持稳定，3–5月累计GMV同比增长20%。'],
+    'crm-2':['原有产品推荐模块互动率有限。','设计A/B测试，以品牌推荐替代产品推荐。','平均点击率提升4至7个百分点。'],
+    'ecommerce-2':['日常运营产生的数据尚未得到充分利用。','使用Excel分析注册量、通过率、资料缺失与客户地域。','产生首批运营洞察，并为转向CRM与Data奠定基础。']
+  }
+};
+
 let lang = 'fr';
 let currentJob = 'product';
 const order = ['ecommerce','crm','data','product'];
@@ -46,10 +82,12 @@ function renderJob(key, animate = true) {
   document.getElementById('tools-list').innerHTML = job.tools.map((tool,i) => `<span style="animation-delay:${i*.025}s">${tool}</span>`).join('');
   document.getElementById('job-metrics').innerHTML = job.metrics.map(m => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
-  const featuredCases = { product:[0,1], data:[0,1,2], crm:[0,1,2], ecommerce:[2] };
   document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => {
-    const featured = featuredCases[key].includes(i);
-    return `<details class="achievement" ${i === 0 ? 'open' : ''}><summary><span class="achievement-number">${String(i+1).padStart(2,'0')}</span><span class="achievement-title"><h2>${a[0]}</h2>${featured ? '<span class="use-case-label">USE CASE</span>' : ''}</span><span class="achievement-toggle" aria-hidden="true">+</span></summary><div class="achievement-body"><p>${a[1]}</p></div></details>`;
+    const useCase = caseStudies[lang][`${key}-${i}`];
+    const labels = lang === 'zh' ? ['背景','行动','成果'] : lang === 'en' ? ['Context','Action','Impact'] : ['Contexte','Action','Impact'];
+    const prompt = lang === 'zh' ? '查看案例详情' : lang === 'en' ? 'View use case' : 'Voir le use case';
+    const details = useCase ? `<details class="case-study"><summary><span class="case-icon" aria-hidden="true">+</span><span>${prompt}</span></summary><div class="case-details">${useCase.map((step,n)=>`<div class="case-step"><b>${labels[n]}</b><span>${step}</span></div>`).join('')}</div></details>` : '';
+    return `<article class="achievement"><span class="achievement-number">${String(i+1).padStart(2,'0')}</span><div class="achievement-main"><h2>${a[0]}</h2><p>${a[1]}</p>${details}</div></article>`;
   }).join('');
   timelineItems.forEach((item,i) => { const active=item.dataset.job===key; item.classList.toggle('active',active); item.setAttribute('aria-selected',String(active)); item.querySelector('.year').textContent=jobs[lang][item.dataset.job].year; item.querySelector('.role-label').textContent=jobs[lang][item.dataset.job].role; });
   document.querySelector('.timeline-progress').style.width = `${index * 33.333}%`;
