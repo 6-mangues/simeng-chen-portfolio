@@ -46,7 +46,11 @@ function renderJob(key, animate = true) {
   document.getElementById('tools-list').innerHTML = job.tools.map((tool,i) => `<span style="animation-delay:${i*.025}s">${tool}</span>`).join('');
   document.getElementById('job-metrics').innerHTML = job.metrics.map(m => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
-  document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => `<article class="achievement"><span class="achievement-number">${String(i+1).padStart(2,'0')}</span><div><h2>${a[0]}</h2><p>${a[1]}</p></div></article>`).join('');
+  const featuredCases = { product:[0,1], data:[0,1,2], crm:[0,1,2], ecommerce:[2] };
+  document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => {
+    const featured = featuredCases[key].includes(i);
+    return `<details class="achievement" ${i === 0 ? 'open' : ''}><summary><span class="achievement-number">${String(i+1).padStart(2,'0')}</span><span class="achievement-title"><h2>${a[0]}</h2>${featured ? '<span class="use-case-label">USE CASE</span>' : ''}</span><span class="achievement-toggle" aria-hidden="true">+</span></summary><div class="achievement-body"><p>${a[1]}</p></div></details>`;
+  }).join('');
   timelineItems.forEach((item,i) => { const active=item.dataset.job===key; item.classList.toggle('active',active); item.setAttribute('aria-selected',String(active)); item.querySelector('.year').textContent=jobs[lang][item.dataset.job].year; item.querySelector('.role-label').textContent=jobs[lang][item.dataset.job].role; });
   document.querySelector('.timeline-progress').style.width = `${index * 33.333}%`;
   if (animate) { const content=document.querySelector('.job-content'); content.classList.remove('switching'); requestAnimationFrame(()=>content.classList.add('switching')); window.scrollTo({top:0,behavior:'smooth'}); }
