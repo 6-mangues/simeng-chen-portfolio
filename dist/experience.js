@@ -1,7 +1,7 @@
 const ui = {
-  fr: { navHome:'Accueil', navExperience:'Mes expériences', navSkills:'Mes compétences', navContact:'Contactez-moi', toolsLabel:'OUTILS & PLATEFORMES', selectedLabel:'SÉLECTION DE RÉALISATIONS' },
-  en: { navHome:'Home', navExperience:'Experience', navSkills:'Skills', navContact:'Contact me', toolsLabel:'TOOLS & PLATFORMS', selectedLabel:'SELECTED ACHIEVEMENTS' },
-  zh: { navHome:'首页', navExperience:'工作经历', navSkills:'专业技能', navContact:'联系我', toolsLabel:'工具与平台', selectedLabel:'重点成果' }
+  fr: { navHome:'Accueil', navExperience:'Mes expériences', navContact:'Contactez-moi', toolsLabel:'OUTILS & PLATEFORMES', skillsAcquired:'COMPÉTENCES ACQUISES', selectedLabel:'SÉLECTION DE RÉALISATIONS' },
+  en: { navHome:'Home', navExperience:'Experience', navContact:'Contact me', toolsLabel:'TOOLS & PLATFORMS', skillsAcquired:'SKILLS DEVELOPED', selectedLabel:'SELECTED ACHIEVEMENTS' },
+  zh: { navHome:'首页', navExperience:'工作经历', navContact:'联系我', toolsLabel:'工具与平台', skillsAcquired:'积累的能力', selectedLabel:'重点成果' }
 };
 
 const jobs = {
@@ -61,6 +61,27 @@ const caseStudies = {
   }
 };
 
+const skillsByJob = {
+  fr: {
+    product:['Analyse métier','Priorisation produit','Product Specs','Gouvernance data','QA / UAT','Stakeholder management'],
+    data:['Modélisation SQL','Segmentation B2B','Data visualisation','Analyse de campagnes','Qualité des données','Data storytelling'],
+    crm:['Marketing automation','Customer journeys','A/B testing','Migration CRM','Conduite du changement','Formation utilisateurs'],
+    ecommerce:['Opérations B2B','Gestion de catalogue','Qualité des dossiers','Règles de TVA','Analyse Excel','Coordination IT']
+  },
+  en: {
+    product:['Business analysis','Product prioritisation','Product Specs','Data governance','QA / UAT','Stakeholder management'],
+    data:['SQL modelling','B2B segmentation','Data visualisation','Campaign analysis','Data quality','Data storytelling'],
+    crm:['Marketing automation','Customer journeys','A/B testing','CRM migration','Change management','User training'],
+    ecommerce:['B2B operations','Catalogue management','File quality','VAT rules','Excel analysis','IT coordination']
+  },
+  zh: {
+    product:['业务分析','产品优先级','Product Specs','数据治理','QA / UAT','干系人管理'],
+    data:['SQL建模','B2B客户分群','数据可视化','营销活动分析','数据质量','数据叙事'],
+    crm:['营销自动化','客户旅程','A/B测试','CRM迁移','变革管理','用户培训'],
+    ecommerce:['B2B运营','商品目录管理','资料质量','VAT规则','Excel分析','IT协作']
+  }
+};
+
 let lang = 'fr';
 let currentJob = 'product';
 const order = ['ecommerce','crm','data','product'];
@@ -81,6 +102,7 @@ function renderJob(key, animate = true) {
   document.getElementById('job-summary').textContent = job.summary;
   document.getElementById('tool-index').textContent = String(index + 1).padStart(2,'0');
   document.getElementById('tools-list').innerHTML = job.tools.map((tool,i) => `<span style="animation-delay:${i*.025}s">${tool}</span>`).join('');
+  document.getElementById('skills-list').innerHTML = skillsByJob[lang][key].map((skill,i) => `<span style="animation-delay:${i*.025}s">${skill}</span>`).join('');
   document.getElementById('job-metrics').innerHTML = job.metrics.map(m => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
   document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => {
