@@ -70,7 +70,7 @@ button { color: inherit; }
 .intro-panel::after { content: ""; position: absolute; width: 340px; height: 340px; right: -210px; bottom: -190px; border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 0 0 55px var(--paper), 0 0 0 56px var(--line), 0 0 0 110px var(--paper), 0 0 0 111px var(--line); }
 .intro-meta { display: flex; justify-content: space-between; font-size: .68rem; letter-spacing: .16em; }
 h1 { margin: clamp(64px, 10vh, 120px) 0 40px; font-family: var(--display); font-size: clamp(5rem, 11.5vw, 12rem); line-height: .76; font-weight: 500; letter-spacing: -.095em; }
-.intro-copy { display: grid; grid-template-columns: minmax(250px, .95fr) minmax(240px, .65fr); gap: clamp(30px, 7vw, 100px); align-items: start; max-width: 1050px; margin-top: auto; margin-bottom: clamp(22px, 4vh, 48px); position: relative; z-index: 2; }
+.intro-copy { display: grid; grid-template-columns: minmax(250px, .95fr) minmax(240px, .65fr); gap: clamp(30px, 7vw, 100px); align-items: start; max-width: 1050px; margin-top: auto; margin-bottom: clamp(62px, 8vh, 96px); position: relative; z-index: 2; }
 .lead { margin: 0; font-family: var(--display); font-size: clamp(1.42rem, 2.4vw, 2.15rem); line-height: 1.2; letter-spacing: -.045em; }
 .details p { margin: 0; color: #555957; font-size: 1rem; line-height: 1.65; }
 .scroll-cue { position: absolute; right: 26px; top: 46%; display: flex; align-items: center; gap: 12px; transform: rotate(90deg) translateX(50%); transform-origin: right; }
