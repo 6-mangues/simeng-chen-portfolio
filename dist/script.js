@@ -71,3 +71,41 @@ const glow = document.querySelector('.cursor-glow');
 window.addEventListener('pointermove', event => {
   glow.style.transform = `translate(${event.clientX - 130}px, ${event.clientY - 130}px)`;
 }, { passive: true });
+
+const sliderTrack = document.querySelector('.slides-track');
+const slides = [...document.querySelectorAll('.profile-slide')];
+const dots = [...document.querySelectorAll('[data-slide-to]')];
+const counter = document.querySelector('.slider-arrows b');
+let currentSlide = 0;
+let sliderTimer;
+
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  slides.forEach((slide, i) => {
+    const active = i === currentSlide;
+    slide.classList.toggle('active', active);
+    slide.setAttribute('aria-hidden', String(!active));
+  });
+  dots.forEach((dot, i) => {
+    const active = i === currentSlide;
+    dot.classList.toggle('active', active);
+    dot.setAttribute('aria-selected', String(active));
+  });
+  counter.textContent = String(currentSlide + 1).padStart(2, '0');
+}
+
+function restartSlider() {
+  clearInterval(sliderTimer);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    sliderTimer = setInterval(() => showSlide(currentSlide + 1), 7000);
+  }
+}
+
+dots.forEach(dot => dot.addEventListener('click', () => {
+  showSlide(Number(dot.dataset.slideTo));
+  restartSlider();
+}));
+document.querySelector('[data-slide-prev]').addEventListener('click', () => { showSlide(currentSlide - 1); restartSlider(); });
+document.querySelector('[data-slide-next]').addEventListener('click', () => { showSlide(currentSlide + 1); restartSlider(); });
+restartSlider();
