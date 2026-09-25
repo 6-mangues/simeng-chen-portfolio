@@ -32,6 +32,18 @@ const language = document.querySelector('.language');
 const langCurrent = document.querySelector('.lang-current');
 const nav = document.querySelector('.main-nav');
 const menuToggle = document.querySelector('.menu-toggle');
+const languageKey = 'simeng-portfolio-language';
+
+function applyLanguage(code) {
+  if (!translations[code]) code = 'fr';
+  document.documentElement.lang = code === 'zh' ? 'zh-CN' : code;
+  document.querySelectorAll('[data-i18n]').forEach(node => {
+    node.innerHTML = translations[code][node.dataset.i18n];
+  });
+  langCurrent.querySelector('span').textContent = code === 'zh' ? '中文' : code.toUpperCase();
+  document.title = `${code === 'zh' ? '陈思蒙' : code === 'en' ? 'CHEN Simeng' : 'Simeng Chen'} — Product · CRM · Data`;
+  try { localStorage.setItem(languageKey, code); } catch (_) {}
+}
 
 langCurrent.addEventListener('click', () => {
   const open = language.classList.toggle('open');
@@ -40,12 +52,7 @@ langCurrent.addEventListener('click', () => {
 
 document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => {
   const code = button.dataset.lang;
-  document.documentElement.lang = code === 'zh' ? 'zh-CN' : code;
-  document.querySelectorAll('[data-i18n]').forEach(node => {
-    node.innerHTML = translations[code][node.dataset.i18n];
-  });
-  langCurrent.querySelector('span').textContent = code === 'zh' ? '中文' : code.toUpperCase();
-  document.title = `${code === 'zh' ? '陈思蒙' : code === 'en' ? 'CHEN Simeng' : 'Simeng Chen'} — Product · CRM · Data`;
+  applyLanguage(code);
   language.classList.remove('open');
   langCurrent.setAttribute('aria-expanded', 'false');
 }));
@@ -109,3 +116,7 @@ dots.forEach(dot => dot.addEventListener('click', () => {
 document.querySelector('[data-slide-prev]').addEventListener('click', () => { showSlide(currentSlide - 1); restartSlider(); });
 document.querySelector('[data-slide-next]').addEventListener('click', () => { showSlide(currentSlide + 1); restartSlider(); });
 restartSlider();
+
+let savedLanguage = 'fr';
+try { savedLanguage = localStorage.getItem(languageKey) || 'fr'; } catch (_) {}
+applyLanguage(savedLanguage);

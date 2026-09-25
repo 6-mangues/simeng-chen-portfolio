@@ -64,6 +64,7 @@ const caseStudies = {
 let lang = 'fr';
 let currentJob = 'product';
 const order = ['ecommerce','crm','data','product'];
+const languageKey = 'simeng-portfolio-language';
 const timelineItems = [...document.querySelectorAll('.timeline-item')];
 const language = document.querySelector('.language');
 const langCurrent = document.querySelector('.lang-current');
@@ -96,8 +97,19 @@ function renderJob(key, animate = true) {
 
 timelineItems.forEach(item => item.addEventListener('click', () => renderJob(item.dataset.job)));
 langCurrent.addEventListener('click',()=>{const open=language.classList.toggle('open');langCurrent.setAttribute('aria-expanded',open);});
-document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>{lang=button.dataset.lang;document.documentElement.lang=lang==='zh'?'zh-CN':lang;document.querySelectorAll('[data-i18n]').forEach(node=>node.textContent=ui[lang][node.dataset.i18n]);langCurrent.querySelector('span').textContent=lang==='zh'?'中文':lang.toUpperCase();document.title=`${ui[lang].navExperience} — Simeng Chen`;language.classList.remove('open');langCurrent.setAttribute('aria-expanded','false');renderJob(currentJob,false);}));
+function applyLanguage(code) {
+  lang = ui[code] ? code : 'fr';
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+  document.querySelectorAll('[data-i18n]').forEach(node=>node.textContent=ui[lang][node.dataset.i18n]);
+  langCurrent.querySelector('span').textContent=lang==='zh'?'中文':lang.toUpperCase();
+  document.title=`${ui[lang].navExperience} — Simeng Chen`;
+  try { localStorage.setItem(languageKey, lang); } catch (_) {}
+  renderJob(currentJob,false);
+}
+document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>{applyLanguage(button.dataset.lang);language.classList.remove('open');langCurrent.setAttribute('aria-expanded','false');}));
 menuToggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuToggle.setAttribute('aria-expanded',open);});
 nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');}));
 document.addEventListener('click',e=>{if(!language.contains(e.target)){language.classList.remove('open');langCurrent.setAttribute('aria-expanded','false');}});
-renderJob(currentJob,false);
+let savedLanguage = 'fr';
+try { savedLanguage = localStorage.getItem(languageKey) || 'fr'; } catch (_) {}
+applyLanguage(savedLanguage);
