@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="description" content="Expériences professionnelles de Simeng Chen — Product, CRM et Data.">
+  <title>Mes expériences — Simeng Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111414'/%3E%3Cpath d='M18 20h28M18 32h20M18 44h28' stroke='%2382ff5f' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="experience.css">
+</head>
+<body class="experience-page">
+  <header class="topbar experience-nav">
+    <a class="brand" href="index.html" aria-label="Accueil Simeng Chen"><span class="brand-mark">SC</span><span class="brand-text">SIMENG CHEN</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <a href="index.html" data-i18n="navHome">Accueil</a>
+      <a class="active" href="experience.html" data-i18n="navExperience">Mes expériences</a>
+      <a href="index.html#skills" data-i18n="navSkills">Mes compétences</a>
+      <a href="index.html#contact" data-i18n="navContact">Contactez-moi</a>
+    </nav>
+    <div class="language" aria-label="Choisir la langue">
+      <button class="lang-current" type="button" aria-expanded="false"><span>FR</span><span aria-hidden="true">↓</span></button>
+      <div class="lang-options" role="menu"><button type="button" role="menuitem" data-lang="fr">FR</button><button type="button" role="menuitem" data-lang="en">EN</button><button type="button" role="menuitem" data-lang="zh">中文</button></div>
+    </div>
+  </header>
+
+  <section class="timeline-shell" aria-label="Chronologie professionnelle">
+    <div class="timeline-line" aria-hidden="true"><span class="timeline-progress"></span></div>
+    <div class="timeline" role="tablist" aria-label="Choisir une expérience">
+      <button class="timeline-item" type="button" role="tab" aria-selected="false" data-job="ecommerce"><span class="dot"></span><span class="year">2020</span><span class="role-label">Assistante e-commerce</span></button>
+      <button class="timeline-item" type="button" role="tab" aria-selected="false" data-job="crm"><span class="dot"></span><span class="year">2022</span><span class="role-label">Cheffe de projet CRM</span></button>
+      <button class="timeline-item" type="button" role="tab" aria-selected="false" data-job="data"><span class="dot"></span><span class="year">2024</span><span class="role-label">Data Analyst</span></button>
+      <button class="timeline-item active" type="button" role="tab" aria-selected="true" data-job="product"><span class="dot"></span><span class="year">2025</span><span class="role-label">Data Product Manager</span></button>
+    </div>
+  </section>
+
+  <main class="experience-layout">
+    <aside class="tools-panel" aria-label="Outils utilisés">
+      <span class="tools-kicker" data-i18n="toolsLabel">OUTILS &amp; PLATEFORMES</span>
+      <div class="tool-index"><b id="tool-index">01</b><span>/ 04</span></div>
+      <div class="tools-list" id="tools-list"></div>
+    </aside>
+
+    <article class="job-content" aria-live="polite">
+      <header class="job-header">
+        <p class="job-period" id="job-period"></p>
+        <h1 id="job-title"></h1>
+        <p class="job-subtitle" id="job-subtitle"></p>
+      </header>
+
+      <div class="job-summary" id="job-summary"></div>
+      <div class="metrics" id="job-metrics"></div>
+      <section class="achievements">
+        <div class="section-heading"><span data-i18n="selectedLabel">SÉLECTION DE RÉALISATIONS</span><span id="achievement-count"></span></div>
+        <div class="achievement-list" id="achievement-list"></div>
+      </section>
+    </article>
+  </main>
+  <script src="experience.js"></script>
+</body>
+</html>
