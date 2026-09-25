@@ -57,13 +57,10 @@ button { color: inherit; }
 
 .hero { min-height: calc(100vh - 130px); display: grid; grid-template-columns: minmax(310px, 31%) 1fr; }
 .identity-panel { display: grid; grid-template-rows: 1fr auto; border-right: 1px solid var(--ink); }
-.portrait { min-height: 400px; padding: 30px; position: relative; display: grid; place-items: end center; overflow: hidden; background: var(--ink); color: white; }
-.portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(49,87,255,.18), transparent 48%), radial-gradient(circle at 68% 30%, rgba(130,255,95,.09), transparent 38%); }
+.portrait { min-height: 400px; padding: 30px; position: relative; display: grid; place-items: end center; overflow: hidden; background: #cfd9e8; color: var(--ink); }
+.portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(255,255,255,.58), transparent 48%), radial-gradient(circle at 72% 26%, rgba(130,255,95,.25), transparent 42%); }
 .portrait-photo { position: relative; z-index: 2; display: block; width: min(120%, 620px); height: 100%; max-width: none; object-fit: contain; object-position: center bottom; filter: saturate(.9) contrast(1.03); transform: translateY(2%); transition: transform .7s cubic-bezier(.2,.75,.25,1), filter .4s ease; }
 .portrait:hover .portrait-photo { transform: translateY(1%) scale(1.018); filter: saturate(1) contrast(1.03); }
-.portrait-index, .portrait-caption { position: absolute; z-index: 3; font-size: .66rem; letter-spacing: .14em; }
-.portrait-index { top: 28px; right: 28px; }
-.portrait-caption { left: 28px; bottom: 28px; writing-mode: vertical-rl; transform: rotate(180deg); }
 .contact-card { border-top: 1px solid var(--ink); padding: 25px 30px 28px; }
 .eyebrow { font-size: .68rem; letter-spacing: .15em; }
 .availability { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
@@ -128,7 +125,6 @@ h1 { margin: clamp(64px, 10vh, 120px) 0 40px; font-family: var(--display); font-
   .lead { font-size: 1.55rem; }
   .details p { font-size: .94rem; }
   .scroll-cue { display: none; }
-  .portrait-caption { writing-mode: initial; transform: none; }
   .cursor-glow { display: none; }
 }
 
