@@ -1,0 +1,41 @@
+.contact-page { min-height: 100vh; background: var(--paper); }
+.contact-shell { min-height: 100vh; }
+.contact-nav { background: rgba(243,240,232,.96); }
+.contact-stage { min-height: calc(100vh - 86px); display: grid; grid-template-columns: minmax(0,1.05fr) minmax(430px,.95fr); }
+.contact-intro { position: relative; min-width: 0; padding: clamp(54px,8vw,120px) clamp(32px,7vw,108px) 48px; display: flex; flex-direction: column; border-right: 1px solid var(--ink); overflow: hidden; }
+.contact-intro::after { content: ""; position: absolute; width: 330px; height: 330px; left: -235px; bottom: -190px; border: 1px solid rgba(49,87,255,.35); border-radius: 50%; box-shadow: 0 0 0 48px var(--paper), 0 0 0 49px rgba(49,87,255,.28), 0 0 0 96px var(--paper), 0 0 0 97px rgba(49,87,255,.18); }
+.contact-eyebrow { display: flex; align-items: center; gap: 12px; font-size: .76rem; }
+.contact-eyebrow span { width: 9px; height: 9px; border-radius: 50%; background: #3dcc5a; box-shadow: 0 0 0 5px rgba(61,204,90,.15); }
+.contact-eyebrow b { font-weight: 600; }
+.contact-intro h1 { max-width: 860px; margin: clamp(70px,11vh,130px) 0 36px; font-size: clamp(4rem,7.4vw,8.2rem); line-height: .88; letter-spacing: -.075em; }
+.contact-intro > p { max-width: 720px; margin: 0; color: #555957; font-size: clamp(1.05rem,1.55vw,1.32rem); line-height: 1.6; }
+.contact-meta { position: relative; z-index: 2; margin-top: auto; padding-top: 54px; display: flex; gap: 24px; justify-content: space-between; color: #656967; font-size: .67rem; letter-spacing: .12em; }
+.contact-actions { display: grid; grid-template-rows: repeat(3,1fr); background: #dce4ff; }
+.contact-action { min-height: 210px; padding: clamp(28px,4vw,54px); display: grid; grid-template-columns: 38px 1fr auto; gap: clamp(18px,3vw,42px); align-items: center; border-bottom: 1px solid var(--ink); text-decoration: none; transition: background .28s ease, color .28s ease; }
+.contact-action:last-child { border-bottom: 0; }
+.contact-action:hover, .contact-action:focus-visible { background: var(--blue); color: white; }
+.action-index { align-self: start; color: var(--blue); font-family: var(--display); font-size: .72rem; transition: color .28s ease; }
+.contact-action:hover .action-index, .contact-action:focus-visible .action-index { color: var(--acid); }
+.contact-action small { display: block; margin-bottom: 18px; font-size: .66rem; letter-spacing: .15em; }
+.contact-action strong { display: block; overflow-wrap: anywhere; font-family: var(--display); font-size: clamp(1.55rem,2.4vw,2.8rem); line-height: 1.05; letter-spacing: -.045em; }
+.contact-action p { margin: 14px 0 0; color: #5c6264; font-size: .86rem; line-height: 1.45; transition: color .28s ease; }
+.contact-action:hover p, .contact-action:focus-visible p { color: rgba(255,255,255,.78); }
+.action-arrow { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(17,20,20,.3); border-radius: 50%; font-size: 1.2rem; transition: transform .25s ease, border-color .25s ease; }
+.contact-action:hover .action-arrow, .contact-action:focus-visible .action-arrow { transform: translate(3px,-3px); border-color: rgba(255,255,255,.5); }
+.contact-action:hover .download-arrow, .contact-action:focus-visible .download-arrow { transform: translateY(4px); }
+
+@media (max-width: 980px) {
+  .contact-stage { min-height: calc(100vh - 74px); grid-template-columns: 1fr; }
+  .contact-intro { min-height: 610px; border-right: 0; border-bottom: 1px solid var(--ink); }
+  .contact-actions { grid-template-rows: none; }
+}
+@media (max-width: 680px) {
+  .contact-intro { min-height: 570px; padding: 38px 20px 30px; }
+  .contact-intro h1 { margin: 74px 0 30px; font-size: clamp(3.5rem,18vw,5rem); }
+  .contact-intro > p { font-size: 1rem; }
+  .contact-meta { flex-direction: column; gap: 8px; padding-top: 38px; }
+  .contact-action { min-height: 190px; padding: 28px 20px; grid-template-columns: 28px 1fr 38px; gap: 12px; }
+  .contact-action small { margin-bottom: 14px; }
+  .contact-action strong { font-size: 1.7rem; }
+  .action-arrow { width: 38px; height: 38px; }
+}
