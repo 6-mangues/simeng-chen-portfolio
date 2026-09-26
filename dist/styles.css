@@ -31,8 +31,11 @@ button { color: inherit; }
   gap: 24px;
   padding: 0 3vw;
   border-bottom: 1px solid var(--ink);
-  position: relative;
-  z-index: 20;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(243,240,232,.96);
+  backdrop-filter: blur(14px);
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; width: max-content; text-decoration: none; font-weight: 700; letter-spacing: -.03em; }
 .brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--acid); font-size: .78rem; }
@@ -50,7 +53,7 @@ button { color: inherit; }
 .menu-toggle { display: none; }
 
 .hero { min-height: calc(100vh - 86px); display: grid; grid-template-columns: minmax(310px, 31%) 1fr; }
-.identity-panel { display: grid; grid-template-rows: 1fr auto; border-right: 1px solid var(--ink); height: calc(100vh - 86px); position: sticky; top: 86px; align-self: start; }
+.identity-panel { display: grid; grid-template-rows: minmax(400px,1fr) auto; border-right: 1px solid var(--ink); height: calc(100vh - 86px); position: sticky; top: 86px; align-self: start; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(17,20,20,.28) transparent; }
 .portrait { min-height: 400px; padding: 0; position: relative; display: grid; place-items: end center; overflow: hidden; background: #cfd9e8; color: var(--ink); }
 .portrait::before { content: ""; position: absolute; inset: 0; background: linear-gradient(145deg, rgba(255,255,255,.58), transparent 48%), radial-gradient(circle at 72% 26%, rgba(130,255,95,.25), transparent 42%); }
 .portrait-photo { position: relative; z-index: 2; display: block; width: min(120%, 620px); height: 100%; max-width: none; object-fit: contain; object-position: center bottom; filter: saturate(.9) contrast(1.03); transform: translateY(2%); transition: transform .7s cubic-bezier(.2,.75,.25,1), filter .4s ease; }
@@ -84,10 +87,6 @@ h1 { margin: clamp(62px, 9vh, 105px) 0 clamp(64px, 9vh, 100px); font-family: var
 .slider-arrows span { min-width: 48px; text-align: center; font-size: .68rem; letter-spacing: .08em; }
 .lead { margin: 0; font-family: var(--display); font-size: clamp(1.42rem, 2.4vw, 2.15rem); line-height: 1.2; letter-spacing: -.045em; }
 .details p { margin: 0; color: #555957; font-size: 1rem; line-height: 1.65; }
-.scroll-cue { position: absolute; right: 26px; top: 46%; display: flex; align-items: center; gap: 12px; transform: rotate(90deg) translateX(50%); transform-origin: right; }
-.scroll-cue span { width: 48px; height: 1px; background: var(--ink); }
-.scroll-cue small { font-size: .58rem; letter-spacing: .16em; }
-
 [data-reveal] { animation: reveal .8s cubic-bezier(.2,.75,.25,1) both; }
 .hero [data-reveal]:nth-child(2) { animation-delay: .12s; }
 .cursor-glow { position: fixed; width: 260px; height: 260px; left: 0; top: 0; border-radius: 50%; pointer-events: none; z-index: -1; background: radial-gradient(circle, rgba(49,87,255,.11), transparent 68%); transform: translate(-50%,-50%); transition: opacity .3s; }
@@ -97,6 +96,7 @@ h1 { margin: clamp(62px, 9vh, 105px) 0 clamp(64px, 9vh, 100px); font-family: var
 
 @media (max-width: 980px) {
   .topbar { grid-template-columns: 1fr auto auto; min-height: 74px; }
+  .identity-panel { top: 74px; height: calc(100vh - 74px); }
   .menu-toggle { display: flex; align-items: center; gap: 10px; border: 0; background: none; cursor: pointer; padding: 10px; }
   .menu-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
   .menu-icon, .menu-icon::after { display: block; width: 18px; height: 1px; background: var(--ink); transition: .2s ease; content: ""; }
@@ -128,7 +128,6 @@ h1 { margin: clamp(62px, 9vh, 105px) 0 clamp(64px, 9vh, 100px); font-family: var
   .slider-controls { margin-top: 28px; }
   .lead { font-size: 1.55rem; }
   .details p { font-size: .94rem; }
-  .scroll-cue { display: none; }
   .cursor-glow { display: none; }
 }
 
