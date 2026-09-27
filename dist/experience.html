@@ -65,8 +65,8 @@
       <section class="work-examples" id="work-examples" hidden>
         <div class="section-heading"><span id="work-examples-label"></span></div>
         <div class="examples-controls">
-          <div class="examples-dots" aria-hidden="true"><span class="active"></span><span></span></div>
-          <div><button type="button" id="example-prev" aria-label="Exemple précédent">←</button><span id="example-index">01 / 02</span><button type="button" id="example-next" aria-label="Exemple suivant">→</button></div>
+          <div class="examples-dots" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+          <div><button type="button" id="example-prev" aria-label="Exemple précédent">←</button><span id="example-index">01 / 03</span><button type="button" id="example-next" aria-label="Exemple suivant">→</button></div>
         </div>
         <div class="examples-viewport">
           <div class="examples-track" id="examples-track">
@@ -94,6 +94,47 @@
                 <a href="looker-navigation-desktop-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-navigation-desktop-anonymise.png" alt="Performance de navigation desktop anonymisée" width="2172" height="724"><span class="looker-cta"></span></a>
                 <a href="looker-sous-menu-desktop-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-sous-menu-desktop-anonymise.png" alt="Performance des sous-menus desktop anonymisée" width="2173" height="724"><span class="looker-cta"></span></a>
                 <a href="looker-sous-menu-mobile-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-sous-menu-mobile-anonymise.png" alt="Performance des sous-menus mobile anonymisée" width="1998" height="787"><span class="looker-cta"></span></a>
+              </div>
+            </article>
+            <article class="work-sample example-slide sql-sample">
+              <div class="work-sample-copy">
+                <span class="work-sample-kicker" id="sql-kicker"></span>
+                <h2 id="sql-title"></h2>
+                <p id="sql-description"></p>
+                <span class="privacy-note" id="sql-privacy"></span>
+              </div>
+              <div class="sql-preview">
+                <div class="sql-window-bar"><span></span><span></span><span></span><b>BigQuery · Standard SQL</b></div>
+                <pre><code><span class="sql-keyword">WITH</span> events <span class="sql-keyword">AS</span> (
+  <span class="sql-keyword">SELECT</span>
+    PARSE_DATE(<span class="sql-string">'%Y-%m-%d'</span>, FORMAT_TIMESTAMP(...)) <span class="sql-keyword">AS</span> event_date,
+    event_name,
+    event_timestamp,
+    user_pseudo_id <span class="sql-keyword">AS</span> user_id,
+    device.category <span class="sql-keyword">AS</span> device_category,
+    (<span class="sql-keyword">SELECT</span> value.int_value <span class="sql-keyword">FROM</span> UNNEST(event_params)
+      <span class="sql-keyword">WHERE</span> key = <span class="sql-string">'ga_session_id'</span>) <span class="sql-keyword">AS</span> session_id
+  <span class="sql-keyword">FROM</span> <span class="sql-string">`company_analytics.ga4_export.events_*`</span>
+  <span class="sql-keyword">WHERE</span> _TABLE_SUFFIX <span class="sql-keyword">BETWEEN</span> ...
+),
+pivot_event <span class="sql-keyword">AS</span> (
+  <span class="sql-keyword">SELECT</span> event_date, session_id, user_id, device_category,
+    MAX(IF(event_name = <span class="sql-string">'view_cart'</span>, 1, 0)) <span class="sql-keyword">AS</span> view_cart,
+    MAX(IF(event_name = <span class="sql-string">'purchase'</span>, 1, 0)) <span class="sql-keyword">AS</span> purchase_valid
+  <span class="sql-keyword">FROM</span> filtered_events
+  <span class="sql-keyword">GROUP BY</span> event_date, session_id, device_category, user_id
+)
+<span class="sql-keyword">SELECT</span>
+  event_date, user_id, device_category,
+  COUNT(DISTINCT session_id) <span class="sql-keyword">AS</span> number_sessions,
+  SAFE_DIVIDE(COUNTIF(purchase_valid = 1), COUNT(DISTINCT session_id))
+    <span class="sql-keyword">AS</span> conversion_rate,
+  SAFE_DIVIDE(COUNTIF(purchase_valid = 1), COUNTIF(view_cart = 1))
+    <span class="sql-keyword">AS</span> conversion_rate_cart
+<span class="sql-keyword">FROM</span> pivot_event
+<span class="sql-keyword">WHERE</span> device_category <span class="sql-keyword">IN</span> (<span class="sql-string">'mobile'</span>, <span class="sql-string">'desktop'</span>)
+<span class="sql-keyword">GROUP BY</span> event_date, device_category, user_id</code></pre>
+                <a href="bigquery-conversion-anonymise.sql" target="_blank" rel="noopener noreferrer" id="sql-cta"></a>
               </div>
             </article>
           </div>
