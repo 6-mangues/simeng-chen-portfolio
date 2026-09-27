@@ -83,9 +83,9 @@ const skillsByJob = {
 };
 
 const workSampleCopy = {
-  fr: { examples:'EXEMPLES DE RÉALISATIONS', kicker:'EXEMPLE 01 · DATA / MARKETING', title:'Dashboard de pilotage marketing', description:'Conception d’un dashboard multi-KPI pour suivre l’acquisition, la conversion, les commandes, le panier moyen, l’activité vendeurs et la performance par marché.', privacy:'Données confidentielles anonymisées · Structure et visualisations conservées', cta:'Voir le dashboard en grand ↗', alt:'Dashboard marketing anonymisé réalisé par Simeng Chen' },
-  en: { examples:'WORK SAMPLES', kicker:'EXAMPLE 01 · DATA / MARKETING', title:'Marketing performance dashboard', description:'Designed a multi-KPI dashboard to monitor acquisition, conversion, orders, average basket, seller activity and performance across markets.', privacy:'Confidential data anonymised · Structure and visualisations preserved', cta:'View full dashboard ↗', alt:'Anonymised marketing dashboard designed by Simeng Chen' },
-  zh: { examples:'作品示例', kicker:'示例 01 · 数据 / 营销', title:'营销数据监控看板', description:'设计多指标营销看板，用于跟踪获客、转化、订单、平均客单价、商家活跃度及不同市场的业务表现。', privacy:'敏感数据已匿名化 · 保留原有结构与可视化', cta:'查看完整看板 ↗', alt:'陈思蒙设计的匿名化营销数据看板' }
+  fr: { examples:'EXEMPLES DE RÉALISATIONS', kicker:'EXEMPLE 01 · DATA / MARKETING', title:'Dashboard de pilotage marketing', description:'Conception d’un dashboard multi-KPI pour suivre l’acquisition, la conversion, les commandes, le panier moyen, l’activité vendeurs et la performance par marché.', privacy:'Données confidentielles anonymisées · Structure et visualisations conservées', cta:'Voir le dashboard en grand ↗', alt:'Dashboard marketing anonymisé réalisé par Simeng Chen', lookerKicker:'EXEMPLE 02 · LOOKER STUDIO', lookerTitle:'Rapports d’analyse des parcours', lookerDescription:'Création de rapports Looker Studio pour comparer la performance par pays et analyser l’usage de la navigation et des sous-menus sur desktop et mobile.', lookerPrivacy:'4 vues anonymisées · Cliquer sur une image pour l’agrandir' },
+  en: { examples:'WORK SAMPLES', kicker:'EXAMPLE 01 · DATA / MARKETING', title:'Marketing performance dashboard', description:'Designed a multi-KPI dashboard to monitor acquisition, conversion, orders, average basket, seller activity and performance across markets.', privacy:'Confidential data anonymised · Structure and visualisations preserved', cta:'View full dashboard ↗', alt:'Anonymised marketing dashboard designed by Simeng Chen', lookerKicker:'EXAMPLE 02 · LOOKER STUDIO', lookerTitle:'Journey analysis reports', lookerDescription:'Built Looker Studio reports to compare performance by country and analyse navigation and submenu usage across desktop and mobile.', lookerPrivacy:'4 anonymised views · Select an image to enlarge' },
+  zh: { examples:'作品示例', kicker:'示例 01 · 数据 / 营销', title:'营销数据监控看板', description:'设计多指标营销看板，用于跟踪获客、转化、订单、平均客单价、商家活跃度及不同市场的业务表现。', privacy:'敏感数据已匿名化 · 保留原有结构与可视化', cta:'查看完整看板 ↗', alt:'陈思蒙设计的匿名化营销数据看板', lookerKicker:'示例 02 · LOOKER STUDIO', lookerTitle:'用户路径分析报告', lookerDescription:'创建Looker Studio报告，对比不同国家的表现，并分析桌面端与移动端导航及子菜单的使用情况。', lookerPrivacy:'4个匿名化视图 · 点击图片放大查看' }
 };
 
 let lang = 'fr';
@@ -121,6 +121,11 @@ function renderJob(key, animate = true) {
     document.getElementById('work-sample-privacy').textContent = copy.privacy;
     document.getElementById('work-sample-cta').textContent = copy.cta;
     document.querySelector('#dashboard-link img').alt = copy.alt;
+    document.getElementById('looker-kicker').textContent = copy.lookerKicker;
+    document.getElementById('looker-title').textContent = copy.lookerTitle;
+    document.getElementById('looker-description').textContent = copy.lookerDescription;
+    document.getElementById('looker-privacy').textContent = copy.lookerPrivacy;
+    requestAnimationFrame(() => document.getElementById('examples-track').scrollTo({left:0,behavior:'auto'}));
   }
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
   document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => {
@@ -136,6 +141,16 @@ function renderJob(key, animate = true) {
 }
 
 timelineItems.forEach(item => item.addEventListener('click', () => renderJob(item.dataset.job)));
+const examplesTrack = document.getElementById('examples-track');
+const exampleDots = [...document.querySelectorAll('.examples-dots span')];
+function updateExampleControls() {
+  const index = Math.round(examplesTrack.scrollLeft / Math.max(1, examplesTrack.clientWidth));
+  document.getElementById('example-index').textContent = `${String(index + 1).padStart(2,'0')} / 02`;
+  exampleDots.forEach((dot,i) => dot.classList.toggle('active', i === index));
+}
+document.getElementById('example-prev').addEventListener('click', () => examplesTrack.scrollBy({left:-examplesTrack.clientWidth,behavior:'smooth'}));
+document.getElementById('example-next').addEventListener('click', () => examplesTrack.scrollBy({left:examplesTrack.clientWidth,behavior:'smooth'}));
+examplesTrack.addEventListener('scroll', updateExampleControls, {passive:true});
 langCurrent.addEventListener('click',()=>{const open=language.classList.toggle('open');langCurrent.setAttribute('aria-expanded',open);});
 function applyLanguage(code) {
   lang = ui[code] ? code : 'fr';

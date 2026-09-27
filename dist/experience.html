@@ -63,19 +63,41 @@
         <div class="achievement-list" id="achievement-list"></div>
       </section>
       <section class="work-examples" id="work-examples" hidden>
-        <div class="section-heading"><span id="work-examples-label"></span><span>01</span></div>
-        <article class="work-sample" id="data-work-sample">
-          <div class="work-sample-copy">
-            <span class="work-sample-kicker" id="work-sample-kicker"></span>
-            <h2 id="work-sample-title"></h2>
-            <p id="work-sample-description"></p>
-            <span class="privacy-note" id="work-sample-privacy"></span>
+        <div class="section-heading"><span id="work-examples-label"></span><span>02</span></div>
+        <div class="examples-viewport">
+          <div class="examples-track" id="examples-track">
+            <article class="work-sample example-slide" id="data-work-sample">
+              <div class="work-sample-copy">
+                <span class="work-sample-kicker" id="work-sample-kicker"></span>
+                <h2 id="work-sample-title"></h2>
+                <p id="work-sample-description"></p>
+                <span class="privacy-note" id="work-sample-privacy"></span>
+              </div>
+              <a class="dashboard-preview" href="dashboard-marketing-anonymise.png" target="_blank" rel="noopener noreferrer" id="dashboard-link">
+                <img src="dashboard-marketing-anonymise.png" alt="Dashboard marketing anonymisé réalisé par Simeng Chen" width="739" height="2127">
+                <span id="work-sample-cta"></span>
+              </a>
+            </article>
+            <article class="work-sample example-slide looker-sample">
+              <div class="work-sample-copy">
+                <span class="work-sample-kicker" id="looker-kicker"></span>
+                <h2 id="looker-title"></h2>
+                <p id="looker-description"></p>
+                <span class="privacy-note" id="looker-privacy"></span>
+              </div>
+              <div class="looker-gallery" aria-label="Captures anonymisées des rapports Looker Studio">
+                <a href="looker-performance-pays-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-performance-pays-anonymise.png" alt="Performance utilisateur par pays anonymisée" width="2169" height="725"></a>
+                <a href="looker-navigation-desktop-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-navigation-desktop-anonymise.png" alt="Performance de navigation desktop anonymisée" width="2172" height="724"></a>
+                <a href="looker-sous-menu-desktop-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-sous-menu-desktop-anonymise.png" alt="Performance des sous-menus desktop anonymisée" width="2173" height="724"></a>
+                <a href="looker-sous-menu-mobile-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-sous-menu-mobile-anonymise.png" alt="Performance des sous-menus mobile anonymisée" width="1998" height="787"></a>
+              </div>
+            </article>
           </div>
-          <a class="dashboard-preview" href="dashboard-marketing-anonymise.png" target="_blank" rel="noopener noreferrer" id="dashboard-link">
-            <img src="dashboard-marketing-anonymise.png" alt="Dashboard marketing anonymisé réalisé par Simeng Chen" width="739" height="2127">
-            <span id="work-sample-cta"></span>
-          </a>
-        </article>
+        </div>
+        <div class="examples-controls">
+          <div class="examples-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+          <div><button type="button" id="example-prev" aria-label="Exemple précédent">←</button><span id="example-index">01 / 02</span><button type="button" id="example-next" aria-label="Exemple suivant">→</button></div>
+        </div>
       </section>
     </article>
   </main>
