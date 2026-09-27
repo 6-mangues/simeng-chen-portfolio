@@ -1,13 +1,13 @@
 const contactTranslations = {
   fr: {
     navHome:'Accueil', navExperience:'Mes expériences', navContact:'Contactez-moi', availability:'Disponible pour une nouvelle opportunité',
-    headline:'Construisons quelque chose d’utile.', intro:'Un produit à cadrer, un CRM à structurer ou des données à transformer en décisions ? Je serais ravie de découvrir votre contexte et d’échanger sur vos enjeux.', response:'Réponse généralement sous 48 h',
+    headline:'Construisons quelque chose d’utile.', intro:'Un produit à cadrer, un CRM à structurer ou des données à transformer en décisions ? Je serais ravie de découvrir votre contexte et d’échanger sur vos priorités.', response:'Je réponds généralement sous 48 h',
     emailLabel:'ÉCRIRE UN E-MAIL', emailNote:'Votre messagerie s’ouvrira avec mon adresse déjà renseignée.', linkedinTitle:'Découvrir mon profil', linkedinNote:'Parcours, expériences et actualités professionnelles.', cvLabel:'CV · VERSION FRANÇAISE', cvTitle:'Télécharger mon CV', cvNote:'Format PDF · Une page'
   },
   en: {
     navHome:'Home', navExperience:'Experience', navContact:'Contact me', availability:'Open to new opportunities',
-    headline:'Let’s build something useful.', intro:'A product to frame, a CRM to structure, or data to turn into decisions? I would be delighted to learn about your context and discuss the challenges ahead.', response:'Usually replies within 48 hours',
-    emailLabel:'SEND AN EMAIL', emailNote:'Your email app will open with my address already filled in.', linkedinTitle:'View my profile', linkedinNote:'Career path, experience and professional updates.', cvLabel:'CV · FRENCH VERSION', cvTitle:'Download my CV', cvNote:'PDF format · One page'
+    headline:'Let’s build something useful.', intro:'Whether you are shaping a product, structuring a CRM or turning data into decisions, I would be glad to learn more about your context and priorities.', response:'I usually reply within 48 hours',
+    emailLabel:'SEND AN EMAIL', emailNote:'Your email app will open with my address already entered.', linkedinTitle:'View my profile', linkedinNote:'Experience, career journey and professional updates.', cvLabel:'CV · FRENCH VERSION', cvTitle:'Download my CV', cvNote:'PDF · One page'
   },
   zh: {
     navHome:'首页', navExperience:'工作经历', navContact:'联系我', availability:'期待新的职业机会',

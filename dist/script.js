@@ -3,19 +3,19 @@ const translations = {
     navHome: "Accueil", navExperience: "Mes expériences", navSkills: "Mes compétences", navContact: "Contactez-moi",
     contactLabel: "CONTACT", availability: "Disponible pour une nouvelle opportunité", location: "Paris, France",
     contactCta: "Échangeons sur votre prochain projet <span>↗</span>", role: "PRODUCT · BUSINESS · DATA", name: "Simeng<br>CHEN",
-    lead: "Je transforme des besoins métier complexes en produits digitaux et solutions data simples, utiles et mesurables — du cadrage à la mise en production.",
-    body: "Spécialisée en CRM, marketing automation et data produit, j’analyse les parcours, structure les besoins et définis les KPI. Je coordonne les équipes métier, IT et partenaires internationaux, puis sécurise la recette, le déploiement et l’amélioration continue.",
-    dataLead: "J’explore les données pour révéler les comportements, mesurer la performance et transformer les signaux CRM & marketing en décisions actionnables.",
-    dataBody: "SQL, modélisation et dashboards : je consolide des sources complexes, construis des segmentations B2B et fiabilise les KPI. Mes analyses couvrent les campagnes, cohortes, funnels de conversion et la performance commerciale afin d’identifier les leviers de fidélisation, de réactivation et de croissance."
+    lead: "Je transforme des besoins métier complexes en produits numériques et solutions data simples, utiles et mesurables — du cadrage à la mise en production.",
+    body: "Spécialisée en CRM, automatisation marketing et produits data, j’analyse les parcours, structure les besoins et définis les KPI. Je coordonne les équipes métier, les équipes IT et les partenaires internationaux, puis sécurise la recette, le déploiement et l’amélioration continue.",
+    dataLead: "J’explore les données pour comprendre les comportements, mesurer la performance et transformer les signaux CRM et marketing en décisions concrètes.",
+    dataBody: "SQL, modélisation et tableaux de bord : je consolide des sources complexes, construis des segmentations B2B et fiabilise les KPI. Mes analyses couvrent les campagnes, les cohortes, les tunnels de conversion et la performance commerciale afin d’identifier les leviers de fidélisation, de réactivation et de croissance."
   },
   en: {
     navHome: "Home", navExperience: "Experience", navSkills: "Skills", navContact: "Contact me",
     contactLabel: "CONTACT", availability: "Open to new opportunities", location: "Paris, France",
     contactCta: "Let’s talk about your next project <span>↗</span>", role: "PRODUCT · BUSINESS · DATA", name: "CHEN<br>Simeng",
-    lead: "I turn complex business needs into simple, useful and measurable digital products and data solutions — from framing to production.",
-    body: "Specialised in CRM, marketing automation and data products, I analyse journeys, structure requirements and define KPIs. I coordinate business teams, IT and international partners, then secure testing, deployment and continuous improvement.",
+    lead: "I turn complex business needs into simple, useful and measurable digital products and data solutions — from initial scoping to launch.",
+    body: "I specialise in CRM, marketing automation and data products. I analyse customer journeys, structure requirements and define KPIs, while coordinating business teams, IT teams and international partners through testing, deployment and continuous improvement.",
     dataLead: "I explore data to uncover behaviours, measure performance and turn CRM and marketing signals into actionable decisions.",
-    dataBody: "Using SQL, data modelling and dashboards, I consolidate complex sources, build B2B segmentations and improve KPI reliability. My analyses span campaigns, cohorts, conversion funnels and commercial performance to identify retention, reactivation and growth opportunities."
+    dataBody: "Using SQL, data modelling and dashboards, I bring complex sources together, build B2B customer segments and improve KPI reliability. My work covers campaigns, cohorts, conversion funnels and commercial performance, helping identify opportunities for retention, reactivation and growth."
   },
   zh: {
     navHome: "首页", navExperience: "工作经历", navSkills: "专业技能", navContact: "联系我",
