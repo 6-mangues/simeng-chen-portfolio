@@ -83,9 +83,9 @@ const skillsByJob = {
 };
 
 const workSampleCopy = {
-  fr: { kicker:'RÉALISATION DATA · MARKETING', title:'Dashboard de pilotage marketing', description:'Conception d’un dashboard multi-KPI pour suivre l’acquisition, la conversion, les commandes, le panier moyen, l’activité vendeurs et la performance par marché.', privacy:'Données confidentielles anonymisées · Structure et visualisations conservées', cta:'Voir le dashboard en grand ↗', alt:'Dashboard marketing anonymisé réalisé par Simeng Chen' },
-  en: { kicker:'DATA · MARKETING WORK SAMPLE', title:'Marketing performance dashboard', description:'Designed a multi-KPI dashboard to monitor acquisition, conversion, orders, average basket, seller activity and performance across markets.', privacy:'Confidential data anonymised · Structure and visualisations preserved', cta:'View full dashboard ↗', alt:'Anonymised marketing dashboard designed by Simeng Chen' },
-  zh: { kicker:'数据 · 营销作品', title:'营销数据监控看板', description:'设计多指标营销看板，用于跟踪获客、转化、订单、平均客单价、商家活跃度及不同市场的业务表现。', privacy:'敏感数据已匿名化 · 保留原有结构与可视化', cta:'查看完整看板 ↗', alt:'陈思蒙设计的匿名化营销数据看板' }
+  fr: { examples:'EXEMPLES DE RÉALISATIONS', kicker:'EXEMPLE 01 · DATA / MARKETING', title:'Dashboard de pilotage marketing', description:'Conception d’un dashboard multi-KPI pour suivre l’acquisition, la conversion, les commandes, le panier moyen, l’activité vendeurs et la performance par marché.', privacy:'Données confidentielles anonymisées · Structure et visualisations conservées', cta:'Voir le dashboard en grand ↗', alt:'Dashboard marketing anonymisé réalisé par Simeng Chen' },
+  en: { examples:'WORK SAMPLES', kicker:'EXAMPLE 01 · DATA / MARKETING', title:'Marketing performance dashboard', description:'Designed a multi-KPI dashboard to monitor acquisition, conversion, orders, average basket, seller activity and performance across markets.', privacy:'Confidential data anonymised · Structure and visualisations preserved', cta:'View full dashboard ↗', alt:'Anonymised marketing dashboard designed by Simeng Chen' },
+  zh: { examples:'作品示例', kicker:'示例 01 · 数据 / 营销', title:'营销数据监控看板', description:'设计多指标营销看板，用于跟踪获客、转化、订单、平均客单价、商家活跃度及不同市场的业务表现。', privacy:'敏感数据已匿名化 · 保留原有结构与可视化', cta:'查看完整看板 ↗', alt:'陈思蒙设计的匿名化营销数据看板' }
 };
 
 let lang = 'fr';
@@ -110,10 +110,11 @@ function renderJob(key, animate = true) {
   document.getElementById('tools-list').innerHTML = job.tools.map((tool,i) => `<span style="animation-delay:${i*.025}s">${tool}</span>`).join('');
   document.getElementById('skills-list').innerHTML = skillsByJob[lang][key].map((skill,i) => `<span style="animation-delay:${i*.025}s">${skill}</span>`).join('');
   document.getElementById('job-metrics').innerHTML = job.metrics.map(m => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
-  const sample = document.getElementById('data-work-sample');
+  const sample = document.getElementById('work-examples');
   sample.hidden = key !== 'data';
   if (key === 'data') {
     const copy = workSampleCopy[lang];
+    document.getElementById('work-examples-label').textContent = copy.examples;
     document.getElementById('work-sample-kicker').textContent = copy.kicker;
     document.getElementById('work-sample-title').textContent = copy.title;
     document.getElementById('work-sample-description').textContent = copy.description;
