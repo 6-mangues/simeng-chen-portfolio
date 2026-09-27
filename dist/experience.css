@@ -65,12 +65,10 @@
 .sql-window-bar span:nth-child(2) { background: #ffd166; }
 .sql-window-bar span:nth-child(3) { background: #61d095; }
 .sql-window-bar b { margin-left: 8px; color: #aab4ca; font-family: ui-monospace,SFMono-Regular,Menlo,monospace; font-size: .65rem; font-weight: 500; }
-.sql-preview pre { height: calc(100% - 38px); margin: 0; padding: 18px 20px 64px; overflow: auto; scrollbar-width: thin; }
+.sql-preview pre { height: calc(100% - 38px); margin: 0; padding: 18px 20px; overflow: auto; scrollbar-width: thin; }
 .sql-preview code { color: #d7deea; font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size: .72rem; line-height: 1.55; white-space: pre; }
 .sql-keyword { color: #7dd3fc; }
 .sql-string { color: #86efac; }
-.sql-preview > a { position: absolute; right: 16px; bottom: 16px; padding: 11px 15px; border-radius: 99px; background: white; color: var(--ink); font-size: .7rem; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,.24); }
-.sql-preview > a:hover, .sql-preview > a:focus-visible { background: #dce4ff; }
 .examples-controls { padding-top: 10px; display: flex; align-items: center; justify-content: space-between; }
 .examples-dots { display: flex; gap: 8px; }
 .examples-dots span { width: 34px; height: 3px; background: var(--line); transition: width .25s ease, background .25s ease; }

@@ -130,7 +130,6 @@ function renderJob(key, animate = true) {
     document.getElementById('sql-title').textContent = copy.sqlTitle;
     document.getElementById('sql-description').textContent = copy.sqlDescription;
     document.getElementById('sql-privacy').textContent = copy.sqlPrivacy;
-    document.getElementById('sql-cta').textContent = copy.sqlCta;
     requestAnimationFrame(() => document.getElementById('examples-track').scrollTo({left:0,behavior:'auto'}));
   }
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
