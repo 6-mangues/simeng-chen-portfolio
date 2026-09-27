@@ -44,6 +44,7 @@
 .examples-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
 .examples-track::-webkit-scrollbar { display: none; }
 .work-sample { flex: 0 0 100%; min-width: 0; height: clamp(410px,29vw,430px); overflow: hidden; display: grid; grid-template-columns: minmax(260px,.42fr) minmax(0,1fr); border: 1px solid var(--ink); background: #dce4ff; scroll-snap-align: start; }
+.example-slide[hidden] { display: none; }
 .work-sample-copy { min-height: 0; padding: clamp(24px,2.2vw,30px); display: flex; flex-direction: column; }
 .work-sample-kicker { color: var(--blue); font-size: .67rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .work-sample h2 { margin: 16px 0 10px; font-family: var(--display); font-size: clamp(1.65rem,2.2vw,2.25rem); line-height: 1; letter-spacing: -.05em; }

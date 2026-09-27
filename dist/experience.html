@@ -70,7 +70,7 @@
         </div>
         <div class="examples-viewport">
           <div class="examples-track" id="examples-track">
-            <article class="work-sample example-slide" id="data-work-sample">
+            <article class="work-sample example-slide" id="data-work-sample" data-job="data">
               <div class="work-sample-copy">
                 <span class="work-sample-kicker" id="work-sample-kicker"></span>
                 <h2 id="work-sample-title"></h2>
@@ -82,7 +82,7 @@
                 <span id="work-sample-cta"></span>
               </a>
             </article>
-            <article class="work-sample example-slide looker-sample">
+            <article class="work-sample example-slide looker-sample" data-job="data">
               <div class="work-sample-copy">
                 <span class="work-sample-kicker" id="looker-kicker"></span>
                 <h2 id="looker-title"></h2>
@@ -96,7 +96,7 @@
                 <a href="looker-sous-menu-mobile-anonymise.png" target="_blank" rel="noopener noreferrer"><img src="looker-sous-menu-mobile-anonymise.png" alt="Performance des sous-menus mobile anonymisée" width="1998" height="787"><span class="looker-cta"></span></a>
               </div>
             </article>
-            <article class="work-sample example-slide sql-sample">
+            <article class="work-sample example-slide sql-sample" data-job="data">
               <div class="work-sample-copy">
                 <span class="work-sample-kicker" id="sql-kicker"></span>
                 <h2 id="sql-title"></h2>
@@ -135,6 +135,30 @@ pivot_event <span class="sql-keyword">AS</span> (
 <span class="sql-keyword">WHERE</span> device_category <span class="sql-keyword">IN</span> (<span class="sql-string">'mobile'</span>, <span class="sql-string">'desktop'</span>)
 <span class="sql-keyword">GROUP BY</span> event_date, device_category, user_id</code></pre>
               </div>
+            </article>
+            <article class="work-sample example-slide workflow-sample" data-job="crm" hidden>
+              <div class="work-sample-copy">
+                <span class="work-sample-kicker" id="crm-welcome-kicker"></span>
+                <h2 id="crm-welcome-title"></h2>
+                <p id="crm-welcome-description"></p>
+                <span class="privacy-note" id="crm-welcome-privacy"></span>
+              </div>
+              <a class="dashboard-preview workflow-preview" href="crm-welcome-workflow-anonymise.png" target="_blank" rel="noopener noreferrer">
+                <img src="crm-welcome-workflow-anonymise.png" alt="Workflow Welcome Pack Zoho Campaigns anonymisé" width="1039" height="1514">
+                <span class="workflow-cta"></span>
+              </a>
+            </article>
+            <article class="work-sample example-slide workflow-sample" data-job="crm" hidden>
+              <div class="work-sample-copy">
+                <span class="work-sample-kicker" id="crm-payment-kicker"></span>
+                <h2 id="crm-payment-title"></h2>
+                <p id="crm-payment-description"></p>
+                <span class="privacy-note" id="crm-payment-privacy"></span>
+              </div>
+              <a class="dashboard-preview workflow-preview" href="crm-paiement-workflow-anonymise.png" target="_blank" rel="noopener noreferrer">
+                <img src="crm-paiement-workflow-anonymise.png" alt="Workflow Zoho CRM de relance des paiements anonymisé" width="735" height="2140">
+                <span class="workflow-cta"></span>
+              </a>
             </article>
           </div>
         </div>

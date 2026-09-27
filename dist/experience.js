@@ -88,6 +88,12 @@ const workSampleCopy = {
   zh: { examples:'作品示例', kicker:'示例 01 · 数据 / 营销', title:'营销数据监控看板', description:'设计多指标营销看板，用于跟踪获客、转化、订单、平均客单价、商家活跃度及不同市场的业务表现。', privacy:'敏感数据已匿名化 · 保留原有结构与可视化', cta:'查看完整看板 ↗', imageCta:'放大查看 ↗', alt:'陈思蒙设计的匿名化营销数据看板', lookerKicker:'示例 02 · LOOKER STUDIO', lookerTitle:'用户路径分析报告', lookerDescription:'创建Looker Studio报告，对比不同国家的表现，并分析桌面端与移动端导航及子菜单的使用情况。', lookerPrivacy:'4个匿名化视图 · 每份报告均可放大查看', sqlKicker:'示例 03 · SQL / BIGQUERY', sqlTitle:'转化漏斗分析', sqlDescription:'使用CTE重建GA4会话，对比移动端与桌面端，并计算查看购物车后的转化率。', sqlPrivacy:'项目与数据集已匿名化 · 保留分析逻辑', sqlCta:'查看完整查询 ↗' }
 };
 
+const crmSampleCopy = {
+  fr: { examples:'EXEMPLES DE RÉALISATIONS', welcomeKicker:'EXEMPLE 01 · CRM / ZOHO CAMPAIGNS', welcomeTitle:'Welcome Pack automatisé', welcomeDescription:'Conception d’un parcours d’accueil segmenté avec conditions, temporisations et messages adaptés au profil et à l’engagement du contact.', welcomePrivacy:'Noms de campagnes, listes et cadences anonymisés · Logique du workflow conservée', paymentKicker:'EXEMPLE 02 · CRM / ZOHO CRM', paymentTitle:'Relance des paiements non finalisés', paymentDescription:'Automatisation de relances e-mail selon le motif d’échec du paiement, le marché et la langue afin d’aider chaque client à finaliser son achat.', paymentPrivacy:'Champs, motifs et marchés anonymisés · Structure des règles conservée', cta:'Voir en grand ↗', welcomeAlt:'Workflow Welcome Pack Zoho Campaigns anonymisé', paymentAlt:'Workflow Zoho CRM de relance des paiements anonymisé' },
+  en: { examples:'WORK SAMPLES', welcomeKicker:'EXAMPLE 01 · CRM / ZOHO CAMPAIGNS', welcomeTitle:'Automated welcome journey', welcomeDescription:'Designed a segmented onboarding journey with conditions, waiting steps and messages adapted to each contact’s profile and engagement.', welcomePrivacy:'Campaign names, lists and schedules anonymised · Workflow logic preserved', paymentKicker:'EXAMPLE 02 · CRM / ZOHO CRM', paymentTitle:'Incomplete-payment recovery', paymentDescription:'Automated email follow-ups by payment-failure category, market and language to help each customer complete their purchase.', paymentPrivacy:'Fields, reasons and markets anonymised · Rule structure preserved', cta:'View full size ↗', welcomeAlt:'Anonymised Zoho Campaigns welcome workflow', paymentAlt:'Anonymised Zoho CRM payment recovery workflow' },
+  zh: { examples:'作品示例', welcomeKicker:'示例 01 · CRM / ZOHO CAMPAIGNS', welcomeTitle:'自动化新客欢迎旅程', welcomeDescription:'根据联系人画像与互动状态设计分群欢迎流程，结合条件判断、等待节点与个性化消息。', welcomePrivacy:'活动名称、名单与发送节奏已匿名化 · 保留工作流逻辑', paymentKicker:'示例 02 · CRM / ZOHO CRM', paymentTitle:'未完成支付召回', paymentDescription:'根据支付失败类别、市场与语言自动触发邮件召回，帮助客户顺利完成购买。', paymentPrivacy:'字段、原因与市场已匿名化 · 保留规则结构', cta:'放大查看 ↗', welcomeAlt:'匿名化Zoho Campaigns欢迎工作流', paymentAlt:'匿名化Zoho CRM支付召回工作流' }
+};
+
 let lang = 'fr';
 let currentJob = 'product';
 const order = ['ecommerce','crm','data','product'];
@@ -111,7 +117,9 @@ function renderJob(key, animate = true) {
   document.getElementById('skills-list').innerHTML = skillsByJob[lang][key].map((skill,i) => `<span style="animation-delay:${i*.025}s">${skill}</span>`).join('');
   document.getElementById('job-metrics').innerHTML = job.metrics.map(m => `<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
   const sample = document.getElementById('work-examples');
-  sample.hidden = key !== 'data';
+  const hasSamples = key === 'data' || key === 'crm';
+  sample.hidden = !hasSamples;
+  document.querySelectorAll('.example-slide').forEach(slide => { slide.hidden = slide.dataset.job !== key; });
   if (key === 'data') {
     const copy = workSampleCopy[lang];
     document.getElementById('work-examples-label').textContent = copy.examples;
@@ -130,8 +138,22 @@ function renderJob(key, animate = true) {
     document.getElementById('sql-title').textContent = copy.sqlTitle;
     document.getElementById('sql-description').textContent = copy.sqlDescription;
     document.getElementById('sql-privacy').textContent = copy.sqlPrivacy;
-    requestAnimationFrame(() => document.getElementById('examples-track').scrollTo({left:0,behavior:'auto'}));
+  } else if (key === 'crm') {
+    const copy = crmSampleCopy[lang];
+    document.getElementById('work-examples-label').textContent = copy.examples;
+    document.getElementById('crm-welcome-kicker').textContent = copy.welcomeKicker;
+    document.getElementById('crm-welcome-title').textContent = copy.welcomeTitle;
+    document.getElementById('crm-welcome-description').textContent = copy.welcomeDescription;
+    document.getElementById('crm-welcome-privacy').textContent = copy.welcomePrivacy;
+    document.getElementById('crm-payment-kicker').textContent = copy.paymentKicker;
+    document.getElementById('crm-payment-title').textContent = copy.paymentTitle;
+    document.getElementById('crm-payment-description').textContent = copy.paymentDescription;
+    document.getElementById('crm-payment-privacy').textContent = copy.paymentPrivacy;
+    document.querySelectorAll('.workflow-cta').forEach(node => node.textContent = copy.cta);
+    document.querySelector('[href="crm-welcome-workflow-anonymise.png"] img').alt = copy.welcomeAlt;
+    document.querySelector('[href="crm-paiement-workflow-anonymise.png"] img').alt = copy.paymentAlt;
   }
+  if (hasSamples) requestAnimationFrame(() => { document.getElementById('examples-track').scrollTo({left:0,behavior:'auto'}); updateExampleControls(); });
   document.getElementById('achievement-count').textContent = String(job.achievements.length).padStart(2,'0');
   document.getElementById('achievement-list').innerHTML = job.achievements.map((a,i) => {
     const useCase = caseStudies[lang][`${key}-${i}`];
@@ -148,11 +170,11 @@ function renderJob(key, animate = true) {
 timelineItems.forEach(item => item.addEventListener('click', () => renderJob(item.dataset.job)));
 const examplesTrack = document.getElementById('examples-track');
 const exampleDots = [...document.querySelectorAll('.examples-dots span')];
-const exampleCount = exampleDots.length;
 function updateExampleControls() {
-  const index = Math.round(examplesTrack.scrollLeft / Math.max(1, examplesTrack.clientWidth));
+  const exampleCount = document.querySelectorAll(`.example-slide[data-job="${currentJob}"]:not([hidden])`).length;
+  const index = Math.max(0, Math.min(exampleCount - 1, Math.round(examplesTrack.scrollLeft / Math.max(1, examplesTrack.clientWidth))));
   document.getElementById('example-index').textContent = `${String(index + 1).padStart(2,'0')} / ${String(exampleCount).padStart(2,'0')}`;
-  exampleDots.forEach((dot,i) => dot.classList.toggle('active', i === index));
+  exampleDots.forEach((dot,i) => { dot.hidden = i >= exampleCount; dot.classList.toggle('active', i === index); });
 }
 document.getElementById('example-prev').addEventListener('click', () => examplesTrack.scrollBy({left:-examplesTrack.clientWidth,behavior:'smooth'}));
 document.getElementById('example-next').addEventListener('click', () => examplesTrack.scrollBy({left:examplesTrack.clientWidth,behavior:'smooth'}));
