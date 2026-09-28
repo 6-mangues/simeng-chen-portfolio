@@ -2,17 +2,17 @@ const contactTranslations = {
   fr: {
     navHome:'Accueil', navExperience:'Mes expériences', navContact:'Contactez-moi', availability:'Disponible pour une nouvelle opportunité',
     headline:'Construisons quelque chose d’utile.', intro:'Un produit à cadrer, un CRM à structurer ou des données à transformer en décisions ? Je serais ravie de découvrir votre contexte et d’échanger sur vos priorités.', response:'Je réponds généralement sous 48 h',
-    emailLabel:'ÉCRIRE UN E-MAIL', emailNote:'Votre messagerie s’ouvrira avec mon adresse déjà renseignée.', linkedinTitle:'Découvrir mon profil', linkedinNote:'Parcours, expériences et actualités professionnelles.', cvLabel:'CV · VERSION FRANÇAISE', cvTitle:'Télécharger mon CV', cvNote:'Format PDF · Une page'
+    emailLabel:'ÉCRIRE UN E-MAIL', linkedinTitle:'Découvrir mon profil', linkedinNote:'Parcours, expériences et actualités professionnelles.', cvLabel:'CV · VERSION FRANÇAISE', cvTitle:'Télécharger mon CV'
   },
   en: {
     navHome:'Home', navExperience:'Experience', navContact:'Contact me', availability:'Open to new opportunities',
     headline:'Let’s build something useful.', intro:'Whether you are shaping a product, structuring a CRM or turning data into decisions, I would be glad to learn more about your context and priorities.', response:'I usually reply within 48 hours',
-    emailLabel:'SEND AN EMAIL', emailNote:'Your email app will open with my address already entered.', linkedinTitle:'View my profile', linkedinNote:'Experience, career journey and professional updates.', cvLabel:'CV · FRENCH VERSION', cvTitle:'Download my CV', cvNote:'PDF · One page'
+    emailLabel:'SEND AN EMAIL', linkedinTitle:'View my profile', linkedinNote:'Experience, career journey and professional updates.', cvLabel:'CV · FRENCH VERSION', cvTitle:'Download my CV'
   },
   zh: {
     navHome:'首页', navExperience:'工作经历', navContact:'联系我', availability:'期待新的职业机会',
     headline:'一起打造真正有价值的项目。', intro:'无论是产品需求梳理、CRM体系建设，还是将数据转化为决策，我都很期待了解您的业务背景并探讨面临的挑战。', response:'通常在48小时内回复',
-    emailLabel:'发送邮件', emailNote:'点击后将自动打开邮件应用并填入我的地址。', linkedinTitle:'查看我的主页', linkedinNote:'了解我的职业经历与最新动态。', cvLabel:'简历 · 法语版本', cvTitle:'下载我的简历', cvNote:'PDF格式 · 一页'
+    emailLabel:'发送邮件', linkedinTitle:'查看我的主页', linkedinNote:'了解我的职业经历与最新动态。', cvLabel:'简历 · 法语版本', cvTitle:'下载我的简历'
   }
 };
 
