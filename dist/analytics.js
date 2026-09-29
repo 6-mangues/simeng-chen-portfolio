@@ -83,7 +83,15 @@
 
   let storedConsent = null;
   try { storedConsent = localStorage.getItem(consentKey); } catch (_) {}
-  if (storedConsent === 'granted') loadAnalytics();
+  if (storedConsent === 'granted') {
+    window.gtag('consent', 'update', {
+      analytics_storage: 'granted',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    loadAnalytics();
+  }
   else if (storedConsent !== 'denied') showConsent();
 
   function track(eventName, parameters) {
