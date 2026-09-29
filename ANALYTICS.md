@@ -1,14 +1,10 @@
 # Mesure d’audience du portfolio
 
-Le site est prêt pour Google Analytics 4 (GA4), avec consentement préalable.
+Le site utilise Google Analytics 4 (GA4), avec consentement préalable.
 
 ## Activation
 
-1. Créer une propriété GA4 sur https://analytics.google.com/.
-2. Ajouter un flux de données « Web » avec le domaine du portfolio.
-3. Copier l’identifiant de mesure au format `G-XXXXXXXXXX`.
-4. Remplacer `G-XXXXXXXXXX` dans `dist/analytics-config.js` par cet identifiant.
-5. Publier la modification sur GitHub. Vercel redéploiera automatiquement le site.
+L’identifiant de mesure `G-WMFGP6T0QX` est configuré dans `dist/analytics-config.js`. Les changements publiés sur GitHub sont redéployés automatiquement par Vercel.
 
 ## Événements suivis
 

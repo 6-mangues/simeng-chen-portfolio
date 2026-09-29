@@ -1,3 +1,3 @@
 window.PORTFOLIO_ANALYTICS = {
-  measurementId: 'G-XXXXXXXXXX'
+  measurementId: 'G-WMFGP6T0QX'
 };
