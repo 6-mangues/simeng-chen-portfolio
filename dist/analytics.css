@@ -1,0 +1,22 @@
+.analytics-consent {
+  position: fixed;
+  z-index: 9999;
+  right: 18px;
+  bottom: 18px;
+  width: min(430px, calc(100vw - 36px));
+  padding: 18px;
+  border: 1px solid #111414;
+  background: #f3f0e8;
+  box-shadow: 0 14px 42px rgba(17,20,20,.16);
+  font-family: "DM Sans", sans-serif;
+}
+.analytics-consent p { margin: 0 0 14px; color: #3f4443; font-size: .88rem; line-height: 1.5; }
+.analytics-consent div { display: flex; justify-content: flex-end; gap: 8px; }
+.analytics-consent button { min-height: 40px; padding: 0 16px; border: 1px solid #111414; border-radius: 99px; background: transparent; color: #111414; font: inherit; cursor: pointer; }
+.analytics-consent .consent-primary { background: #111414; color: #fff; }
+.analytics-consent button:focus-visible { outline: 3px solid #3157ff; outline-offset: 2px; }
+@media (max-width: 600px) {
+  .analytics-consent { right: 10px; bottom: 10px; width: calc(100vw - 20px); }
+  .analytics-consent div { justify-content: stretch; }
+  .analytics-consent button { flex: 1; }
+}
